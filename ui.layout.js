@@ -382,15 +382,29 @@ Pane.prototype.maxHeight = function(value) {
 
 (function($) {
     $.fn.layout = function(options) {
-        var $this = $(this)
+        var $this = $(this);
+        
+        var config = {
+            type: 'vertical',
+            resizable: false,
+            helper: false,
+            panes: []
+        };
+        
+        if(!options) {
+            options = {};
+        }
+        
+        config = $.extend(config, options);
+        
         var layout = new Layout($this,{
-            type: options.type,
-            resizable: options.resizable,
-            helper: options.helper
+            type: config.type,
+            resizable: config.resizable,
+            helper: config.helper
         });
         
-        for(var i = 0; i < options.panes.length; i++) {
-            var paneOptions = options.panes[i];
+        for(var i = 0; i < config.panes.length; i++) {
+            var paneOptions = config.panes[i];
             
             var pane = new Pane(paneOptions[0]);
             
