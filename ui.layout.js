@@ -1,3 +1,4 @@
+(function($) {
 // Layout Class
 var Layout = function(selector, options) {
     this.push($(selector).get(0));
@@ -192,6 +193,16 @@ Layout.prototype.calculateHorizontalResizeConstrains = function(pane, relativePa
     return this;
 };
 
+Layout.prototype.setupWrapper = function(wrapper) {
+    var resizeWrapper = function() {
+        wrapper.width(wrapper.parent().width() - (wrapper.outerWidth(true) - wrapper.width()));
+        wrapper.height(wrapper.parent().height() - (wrapper.outerHeight(true) - wrapper.height()));
+    };
+    
+    resizeWrapper();
+    $(window).on('resize', resizeWrapper);
+};
+
 Layout.prototype.setupVerticalPanes = function() {
     var panes = this.getPanes();    
     
@@ -214,6 +225,8 @@ Layout.prototype.setupVerticalPanes = function() {
             
             panes[i].height('100%');
             panes[i].initialize();
+            
+            this.setupWrapper(panes[i].find('.ui-layout-pane-wrapper'));
         }
         
         if(notSized.length > 0) {
@@ -228,6 +241,8 @@ Layout.prototype.setupVerticalPanes = function() {
             paneWidth = 100 * (fittingArea + lastPane.width()) / this.width();
             lastPane.width(paneWidth + '%');
         }
+        
+        this.trigger('resize');
     }
 };
 
@@ -239,7 +254,6 @@ Layout.prototype.setupHorizontalPanes = function() {
         var notSized = [];
         
         for(var i in panes) {
-            
             var paneHeight = panes[i].height();
             
             if(paneHeight > 0) {
@@ -254,6 +268,8 @@ Layout.prototype.setupHorizontalPanes = function() {
             
             panes[i].width('100%');
             panes[i].initialize();
+            
+            this.setupWrapper(panes[i].find('.ui-layout-pane-wrapper'));
         }
         
         if(notSized.length > 0) {
@@ -268,6 +284,8 @@ Layout.prototype.setupHorizontalPanes = function() {
             paneHeight = 100 * (fittingArea + lastPane.height()) / this.height();
             lastPane.height(paneHeight + '%');
         }
+        
+        this.trigger('resize');
     }
 };
 
@@ -292,7 +310,7 @@ var Pane = function(selector) {
     
     this.initialize();
     
-    this.html('<div class="ui-layout-pane-wrapper">'+this.html()+'</div>')
+    this.html('<div class="ui-layout-pane-wrapper">'+this.html()+'</div>');
 };
 
 jQuery.extend(Pane.prototype, jQuery.prototype);
@@ -309,11 +327,11 @@ Pane.prototype.initialize = function() {
 };
 
 Pane.prototype.computedWidth = function() {
-    return parseFloat(document.defaultView.getComputedStyle(this.get(0), null).getPropertyValue("width"));
+    return parseFloat(window.getComputedStyle(this.get(0), null).getPropertyValue("width"));
 };
 
 Pane.prototype.computedHeight = function() {
-    return parseFloat(document.defaultView.getComputedStyle(this.get(0), null).getPropertyValue("height"));
+    return parseFloat(window.getComputedStyle(this.get(0), null).getPropertyValue("height"));
 };
 
 Pane.prototype.width = function(value) {
@@ -378,9 +396,24 @@ Pane.prototype.maxHeight = function(value) {
     return this._maxHeight;
 };
 
-// JQuery Plugin
+if (!window.getComputedStyle) {
+    window.getComputedStyle = function(el, pseudo) {
+        this.el = el;
+        this.getPropertyValue = function(prop) {
+            var re = /(\-([a-z]){1})/g;
+            if (prop == 'float') prop = 'styleFloat';
+            if (re.test(prop)) {
+                prop = prop.replace(re, function () {
+                    return arguments[2].toUpperCase();
+                });
+            }
+            return el.currentStyle[prop] ? el.currentStyle[prop] : null;
+        };
+        return this;
+    };
+}
 
-(function($) {
+// JQuery Plugin
     $.fn.layout = function(options) {
         var $this = $(this);
         

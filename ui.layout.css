@@ -1,11 +1,13 @@
 .ui-layout {
+    background: #cfcfcf;
     overflow: hidden;
 }
 
 .ui-layout-pane-wrapper {
-    width: 100%;
-    height: 100%;
     overflow: auto;
+    margin: 4px;
+    border: 1px solid gray;
+    background: white;
 }
 
 .ui-layout-vertical .ui-resizable-e {
@@ -13,11 +15,9 @@
 }
 
 .ui-layout-vertical > .ui-layout-pane > .ui-resizable-handle {
-    width: 0;
-    border-left: 1px solid silver;
-    border-right: 1px solid gray;
+    width: 8px;
     position: absolute;
-    right: -1px;
+    right: -4px;
     top: 0;
     height: 100%;
     background: #cfcfcf;
@@ -28,10 +28,9 @@
 }
 
 .ui-layout-horizontal > .ui-layout-pane > .ui-resizable-handle {
-    height: 0;
-    border-top: 1px solid silver;
-    border-bottom: 1px solid gray;
+    height: 8px;
     position: absolute;
-    bottom: -1px;
+    bottom: -4px;
     width: 100%;
+    background: #cfcfcf;
 }
