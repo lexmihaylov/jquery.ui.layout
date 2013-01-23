@@ -24,11 +24,11 @@
             }
             
             .ui-layout-resize-h {
-                border-bottom: 2px solid gray;
+                border-bottom: 4px solid gray;
             }
             
             .ui-layout-resize-v {
-                border-right: 2px solid gray;
+                border-right: 4px solid gray;
             }
         </style>
         <script>
@@ -36,7 +36,7 @@
                 $('#layout').layout({
                     type: 'vertical',
                     resizable: true,
-                    helper: 'ui-layout-resize-v',
+                    helper: false,
                     panes: [
                         ['#pane1', {minWidth: 200, maxWidth: 400}],
                         ['#pane2']
@@ -57,23 +57,18 @@
     <body>
         <div id="layout">
             <div id="pane1" style="width: 200px;">
-                <div>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu erat turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque fermentum, mauris eget pulvinar sollicitudin, tellus mi iaculis nisl, vitae ornare arcu nulla id quam. Integer aliquam, metus dignissim lacinia convallis, quam lectus malesuada urna, ac semper arcu tellus sit amet sem. Curabitur ipsum lectus, rhoncus in laoreet consequat, posuere ac ipsum. Cras facilisis, augue id porta sagittis, leo arcu mattis nibh, sed tincidunt eros erat at mi. Proin in ante justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In vel massa dolor. Sed vel libero ac est viverra elementum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacus lacus, sagittis id pulvinar a, vulputate vel felis. Nullam in diam et nisi ultrices varius eget a erat. Pellentesque ac justo eget odio interdum vulputate condimentum ultrices tellus. Quisque facilisis ultrices tristique. Sed posuere tempus facilisis.
 
                 Pellentesque posuere facilisis dui sollicitudin tincidunt. Praesent consequat metus non leo sagittis egestas. Ut nec lectus leo. Duis cursus, ante condimentum congue dictum, ligula quam tempor nisl, nec dapibus elit enim quis nisi. Duis odio diam, bibendum id consectetur in, vestibulum sed urna. Cras pellentesque urna sed sapien auctor at pharetra libero ultricies. Integer in ultrices urna. Phasellus euismod venenatis rutrum. Maecenas nibh lorem, pretium ut vulputate non, ornare id velit. Fusce rhoncus scelerisque massa sit amet porttitor. Mauris porttitor lobortis mi, sit amet consectetur sem viverra ac. Etiam in turpis ut neque porta fermentum vitae id dui.
-                </div>
             </div>
             <div id="pane2">
                 <div id="hLayout">
                     <div id="pane3" style="height: 200px">
-                        <div>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu erat turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque fermentum, mauris eget pulvinar sollicitudin, tellus mi iaculis nisl, vitae ornare arcu nulla id quam. Integer aliquam, metus dignissim lacinia convallis, quam lectus malesuada urna, ac semper arcu tellus sit amet sem. Curabitur ipsum lectus, rhoncus in laoreet consequat, posuere ac ipsum. Cras facilisis, augue id porta sagittis, leo arcu mattis nibh, sed tincidunt eros erat at mi. Proin in ante justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In vel massa dolor. Sed vel libero ac est viverra elementum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacus lacus, sagittis id pulvinar a, vulputate vel felis. Nullam in diam et nisi ultrices varius eget a erat. Pellentesque ac justo eget odio interdum vulputate condimentum ultrices tellus. Quisque facilisis ultrices tristique. Sed posuere tempus facilisis.
 
                         Pellentesque posuere facilisis dui sollicitudin tincidunt. Praesent consequat metus non leo sagittis egestas. Ut nec lectus leo. Duis cursus, ante condimentum congue dictum, ligula quam tempor nisl, nec dapibus elit enim quis nisi. Duis odio diam, bibendum id consectetur in, vestibulum sed urna. Cras pellentesque urna sed sapien auctor at pharetra libero ultricies. Integer in ultrices urna. Phasellus euismod venenatis rutrum. Maecenas nibh lorem, pretium ut vulputate non, ornare id velit. Fusce rhoncus scelerisque massa sit amet porttitor. Mauris porttitor lobortis mi, sit amet consectetur sem viverra ac. Etiam in turpis ut neque porta fermentum vitae id dui.
-                        </div>
                     </div>
                     <div id="pane4">
-                        <div>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu erat turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque fermentum, mauris eget pulvinar sollicitudin, tellus mi iaculis nisl, vitae ornare arcu nulla id quam. Integer aliquam, metus dignissim lacinia convallis, quam lectus malesuada urna, ac semper arcu tellus sit amet sem. Curabitur ipsum lectus, rhoncus in laoreet consequat, posuere ac ipsum. Cras facilisis, augue id porta sagittis, leo arcu mattis nibh, sed tincidunt eros erat at mi. Proin in ante justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In vel massa dolor. Sed vel libero ac est viverra elementum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacus lacus, sagittis id pulvinar a, vulputate vel felis. Nullam in diam et nisi ultrices varius eget a erat. Pellentesque ac justo eget odio interdum vulputate condimentum ultrices tellus. Quisque facilisis ultrices tristique. Sed posuere tempus facilisis.
 
                         Pellentesque posuere facilisis dui sollicitudin tincidunt. Praesent consequat metus non leo sagittis egestas. Ut nec lectus leo. Duis cursus, ante condimentum congue dictum, ligula quam tempor nisl, nec dapibus elit enim quis nisi. Duis odio diam, bibendum id consectetur in, vestibulum sed urna. Cras pellentesque urna sed sapien auctor at pharetra libero ultricies. Integer in ultrices urna. Phasellus euismod venenatis rutrum. Maecenas nibh lorem, pretium ut vulputate non, ornare id velit. Fusce rhoncus scelerisque massa sit amet porttitor. Mauris porttitor lobortis mi, sit amet consectetur sem viverra ac. Etiam in turpis ut neque porta fermentum vitae id dui.
