@@ -90,7 +90,7 @@ Creating a mixture of horizontal and vertical layouts:
 Options:
 ========
 
-type - determines the type of the layout (horizontal or vertical);
-resizable - if true than the layout would be resizable be the users
-helper - enables or disables the use of helpers when resizing
-panes - an array of panes; the pane should be set as an array: the first element of the array should be the id of the element and the second is optional and it should be an object that holds the minimum and maximum width or height used when resizing.
+- type - determines the type of the layout (horizontal or vertical);
+- resizable - if true than the layout would be resizable be the users
+- helper - enables or disables the use of helpers when resizing
+- panes - an array of panes; the pane should be set as an array: the first element of the array should be the id of the element and the second is optional and it should be an object that holds the minimum and maximum width or height used when resizing.
