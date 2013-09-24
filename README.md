@@ -7,7 +7,7 @@ How to use:
 
 ###### Creating a vertical resizable layout:
 
-```javascript
+```html
 <script>
   $(function() {
       $('#layout').layout({
@@ -30,7 +30,7 @@ How to use:
 
 ###### Creating a horizontal layout:
 
-```javascript
+```html
 <script>
   $(function() {
      $('#hLayout').layout({
@@ -52,7 +52,7 @@ How to use:
 ```
 ###### Creating a mixture of horizontal and vertical layouts:
 
-```javascript
+```html
 <script>
   $(function() {
     $('#layout').layout({
