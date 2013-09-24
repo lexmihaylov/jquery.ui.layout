@@ -3,9 +3,9 @@ JQuery UI resizable layout
 
 
 How to use:
-===========
+-----------
 
-Creating a vertical resizable layout:
+###### Creating a vertical resizable layout:
 
 ```javascript
 <script>
@@ -28,7 +28,7 @@ Creating a vertical resizable layout:
 </div>
 ```
 
-Creating a horizontal layout:
+###### Creating a horizontal layout:
 
 ```javascript
 <script>
@@ -50,7 +50,7 @@ Creating a horizontal layout:
   <div id="pane4">Some content</div>
 </div>
 ```
-Creating a mixture of horizontal and vertical layouts:
+###### Creating a mixture of horizontal and vertical layouts:
 
 ```javascript
 <script>
@@ -88,7 +88,7 @@ Creating a mixture of horizontal and vertical layouts:
 </div>
 ```
 Options:
-========
+--------
 
 - type - determines the type of the layout (horizontal or vertical);
 - resizable - if true than the layout would be resizable be the users
